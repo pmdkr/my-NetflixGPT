@@ -2,6 +2,16 @@
 
 - Create React App
 - Configured tailwind CSS
+- Routing for app
+- Header
+- Login form
+- Sign Up form
+- Form Validation
+- useRef Hook
+- Deployed our app to firebase (firebase init -> firebase login -> firebase deploy)
+- Sign Up implemented using firebase sign up through email and passward option
+
+
 
 
 
