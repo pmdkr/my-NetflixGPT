@@ -8,9 +8,13 @@
 - Sign Up form
 - Form Validation
 - useRef Hook
+- Firebase setup
 - Deployed our app to firebase (firebase init -> firebase login -> firebase deploy)
-- Sign Up implemented using firebase sign up through email and passward option
-
+- Sign Up implemented using firebase authetication
+- Created Redux store with userSlice
+- update the user on Sign Up
+- Sign Out button on browse page implemented 
+- User Profile implemented 
 
 
 

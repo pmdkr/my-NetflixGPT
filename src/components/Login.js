@@ -2,17 +2,24 @@ import React, { useRef, useState } from 'react';
 import Header from './Header';
 import { NETFLIX_HOMEPAGE } from '../utils/constants';
 import { checkValidation } from '../utils/validation';
-import { createUserWithEmailAndPassword } from "firebase/auth";
+import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from '../utils/firebase';
+import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { addUser } from '../utils/userSlice';
 
 const Login = () => {
 
+  const navigate = useNavigate();
   const [isSignInForm, setIsSignInForm] = useState(true);
   const [errorMessage, setErrorMessage] = useState(null);
 
   const email = useRef(null);
   const password = useRef(null);
+  const name = useRef(null);
+
+  const dispatch = useDispatch();
 
   const toggleSignInForm = () => {
     setIsSignInForm(!isSignInForm);
@@ -35,14 +42,33 @@ const Login = () => {
           .then((userCredential) => {
             // Signed up 
             const user = userCredential.user;
+            updateProfile(user, {
+              displayName: name.current.value,
+              photoURL: "https://avatars.githubusercontent.com/u/58351520?v=4"
+            }).then(() => {
+              // Profile updated!
+              const { uid, email, displayName, photoURL } = auth.currentUser;
+              dispatch(addUser(
+                {
+                  uid: uid,
+                  email: email,
+                  displayName: displayName,
+                  photoURL: photoURL
+                }));
+              navigate("/browse");
+            }).catch((error) => {
+              // An error occurred
+              // ...
+            });
             // ...
             // console.log(user);
+
           })
           .catch((error) => {
             const errorCode = error.code;
             const errorMessage = error.message;
             // ..
-            setErrorMessage("Something went wrong,please try later");
+            setErrorMessage(errorCode + "- " + errorMessage);
           });
 
 
@@ -56,6 +82,7 @@ const Login = () => {
             const user = userCredential.user;
             // ...
             // console.log(user);
+            navigate("/browse")
 
           })
           .catch((error) => {
@@ -81,9 +108,12 @@ const Login = () => {
       </div>
       <form onSubmit={(e) => e.preventDefault()}
         className=' w-4/12 p-12 absolute bg-black my-36 mx-auto right-0 left-0 text-white rounded-lg bg-opacity-80'>
-        <h1 className='font-bold text-2xl py-4'>{isSignInForm ? "Sign In" : "Sign Up"}</h1>
+        <h1 className='font-bold text-2xl py-4'>{isSignInForm ? "Sign In" : "Sign Up"} </h1>
 
-        {!isSignInForm && <input type='text' placeholder='Full name' className='my-4 p-4 w-full bg-gray-700' />}
+        {!isSignInForm &&
+          <input
+            ref={name}
+            type='text' placeholder='Full name' className='my-4 p-4 w-full bg-gray-700' />}
         <input
           ref={email}
           type='text'
