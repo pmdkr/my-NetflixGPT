@@ -15,6 +15,8 @@
 - update the user on Sign Up
 - Sign Out button on browse page implemented 
 - User Profile implemented 
+- BugFix: 
+- BugFix: 
 
 
 
