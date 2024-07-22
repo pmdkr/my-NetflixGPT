@@ -15,8 +15,8 @@
 - update the user on Sign Up
 - Sign Out button on browse page implemented 
 - User Profile implemented 
-- BugFix: 
-- BugFix: 
+- BugFix: sign up user displayName and profile photo
+- BugFix: if the user not logged In , redirect to home page
 
 
 
