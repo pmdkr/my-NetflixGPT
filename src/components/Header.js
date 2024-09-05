@@ -26,7 +26,7 @@ const Header = () => {
               displayName: displayName,
               photoURL: photoURL
             }));
-            navigate("/browse")
+        navigate("/browse")
 
 
         // ...
@@ -44,7 +44,7 @@ const Header = () => {
   const handleSignOutbutton = () => {
     signOut(auth).then(() => {
       // Sign-out successful.
-      
+
 
     }).catch((error) => {
       // An error happened.

@@ -1,6 +1,6 @@
 import React, { useRef, useState } from 'react';
 import Header from './Header';
-import { NETFLIX_HOMEPAGE } from '../utils/constants';
+import { NETFLIX_HOMEPAGE, USER_AVATAR } from '../utils/constants';
 import { checkValidation } from '../utils/validation';
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { signInWithEmailAndPassword } from "firebase/auth";
@@ -44,7 +44,7 @@ const Login = () => {
             const user = userCredential.user;
             updateProfile(user, {
               displayName: name.current.value,
-              photoURL: "https://avatars.githubusercontent.com/u/58351520?v=4",
+              photoURL: USER_AVATAR,
             }).then(() => {
               // Profile updated!
               const { uid, email, displayName, photoURL } = auth.currentUser;
@@ -55,7 +55,7 @@ const Login = () => {
                   displayName: displayName,
                   photoURL: photoURL
                 }));
-              
+
             }).catch((error) => {
               // An error occurred
               // ...
@@ -80,7 +80,7 @@ const Login = () => {
           .then((userCredential) => {
             // Signed in 
             const user = userCredential.user;
-            console.log("user Sign in successfully");
+            // console.log("user Sign in successfully");
             const { uid, email, displayName, photoURL } = auth.currentUser;
             dispatch(addUser(
               {

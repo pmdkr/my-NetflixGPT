@@ -17,6 +17,25 @@
 - User Profile implemented 
 - BugFix: sign up user displayName and profile photo
 - BugFix: if the user not logged In , redirect to home page
+- unsubscribed to the onAuthStateChanged callback
+- Add hardcoded values to the constant file
+- Register on TMDB & create an app & get access token
+- Get data from TMDB now playing movies list API
+- Custom hook for now playing movies
+- Create movie slice
+- Update store with movies data
+- Planning for MainContainer & Secondary Container   
+- Fetch data for trailer video  
+- Update store with trailer video data
+- Embedded the youtube video and make it autoplay and mute
+- Tailwind classess to make Main container look awesome
+- Build Secondary container
+- Build movie list and fetch movies list from TMDB API
+- Added Movies list horizontal scrolling with diffrent genure 
+- Added functionlity to scroll on mouse wheel scroll
+- Build movie list and fetch movies list from TMDB API
+- Created Footer section with react icons
+
 
 
 
