@@ -43,6 +43,14 @@ export const TOP_RATED_OPTIONS = {
   }
 };
 
+export const UPCOMING_MOVIES_URL = 'https://api.themoviedb.org/3/movie/upcoming?language=en-US&page=1';
+export const UPCOMING_MOVIES_OPTIONS = {
+  method: 'GET',
+  headers: {
+    accept: 'application/json',
+    Authorization: process.env.REACT_APP_UPCOMING_TOKEN,
+  }
+};
 
 
 

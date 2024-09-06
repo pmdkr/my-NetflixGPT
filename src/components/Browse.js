@@ -7,11 +7,13 @@ import MainContainer from './MainContainer';
 import usePopularMovies from '../hooks/uesPopularMovies';
 import useTopRatedMovies from '../hooks/uesTopRatedMovies';
 import Footer from './Footer';
+import useUpcomingMovies from '../hooks/useUpcomingMovies';
 
 const Browse = () => {
   useNowPlayingMovies();
   usePopularMovies();
   useTopRatedMovies();
+  useUpcomingMovies();
 
   return (
     <div>

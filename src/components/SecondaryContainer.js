@@ -8,6 +8,7 @@ const SecondaryContainer = () => {
   const ListOfMovies = useSelector((store) => store.movies?.nowPlayMovies);
   const ListOfPopularMovies = useSelector((store) => store.movies?.PopularMovies);
   const topRatedMovies = useSelector((store) => store.movies?.topRatedMovies);
+  const upcomingMovies = useSelector((store) => store.movies?.upcomingMovies);
 
   // console.log(ListOfMovies);
   if (!ListOfMovies) {
@@ -19,6 +20,7 @@ const SecondaryContainer = () => {
         <MoviesList title={"Now playing"} moviesList={ListOfMovies} />
         <MoviesList title={"Top Rated"} moviesList={topRatedMovies} />
         <MoviesList title={"Popular movies"} moviesList={ListOfPopularMovies} />
+        <MoviesList title={"Upcoming Movies"} moviesList={upcomingMovies} />
 
 
       </div>
